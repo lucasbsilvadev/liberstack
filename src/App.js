@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { theme } from './style/theme';
+
+// Importe apenas o componente de countdown
+import LaunchCountdown from './components/sections/LaunchCountdown';
 
 function App() {
+  // Para o deploy temporário, vamos exibir apenas o countdown
+  const isLaunchMode = true; // Mude para false quando quiser voltar ao site completo
+
+  if (isLaunchMode) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="App">
+          <LaunchCountdown />
+        </div>
+      </ThemeProvider>
+    );
+  }
+
+  // Código original para quando voltar ao site completo
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        {/* <Preloader />
+        <Navbar />
+        <Hero />
+        <Services />
+        <Product />
+        <Feedback />
+        <Footer /> */}
+      </div>
+    </ThemeProvider>
   );
 }
 

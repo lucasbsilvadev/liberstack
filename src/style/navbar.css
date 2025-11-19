@@ -1,0 +1,17 @@
+/* Efeito de underline nos links */
+.link-underline {
+  transition: width 0.3s ease;
+}
+
+.MuiButton-root:hover .link-underline {
+  width: 80% !important;
+}
+
+/* Efeito de brilho no logo */
+.logo-glow {
+  filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.4));
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 12px rgba(124, 58, 237, 0.6));
+}
