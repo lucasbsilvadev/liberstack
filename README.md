@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+Liberstack Landing Page: Tecnologia que Conecta e Expande
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse é o repositório da landing page, da minha startup: liberstack.  Meu objetivo é apresentar nossos serviços e produtos com uma experiência de usuário fluida, criativa e altamente engajadora.
 
-## Available Scripts
+O site ainda está em construção, durante o processo pretendo trazer mais informações por meio das redes sociais quanto as propostas atuais, e os planos futuros para a liberstack.
 
-In the project directory, you can run:
+Vou ser sincero, tudo ainda é muito nebuloso. Em boa parte ainda são só ideias. No momento eu só tenho um produto que posso começar a distribuir. Eu realmente estou construindo isso do zero, o maior objetivo nem é necessariamente sucesso, mas conseguir conectar pessoas e expandir o acesso à informação positivamente.
 
-### `npm start`
+Pretendo começar com landing pages, e quero lançar um mini SaaS de management para profissionais de educação física, e da saúde no geral. Quero realmente vender a melhor performance possível pro usuário, ao invés de mantê-lo sempre insatisfeito para tê-lo como cliente, que é das estratégias que com certeza não pretendo adotar. Tudo isso seria muito bonito, se eu fosse um desenvolvedor experiente que sabe o que está fazendo, porque esse não é o caso também. O que quero dizer é que estarei utilizando o que estiver ao meu alcance no que se trata de ferramentas. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+No futuro, espero conseguir fazer algo realmente significativo. Queria muito entender mais de low level programming, e criar ferramentas essenciais para a computação também, mas no momento acho que consigo me imaginar lançando uma plataforma que ajude pessoas e resolva problemas. 
+Espero dar continuidade nos próximos meses e quem sabe construir uma comunidade ao longo do tempo.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Por fim, fica uma citação de Albert Camus:
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+"The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion."
