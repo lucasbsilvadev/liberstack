@@ -1,257 +1,147 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Box, Typography, Button } from '@mui/material';
-import { motion } from 'framer-motion';
-import NetworkDiagram from '../ui/NetworkDiagram';
+import React from "react";
+import { Box, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  const [counters, setCounters] = useState({
-    projects: 0,
-    clients: 0,
-    efficiency: 0
-  });
-
-  useEffect(() => {
-    // Animação dos contadores
-    const animateCounters = () => {
-      const targetValues = { projects: 150, clients: 89, efficiency: 97 };
-      const duration = 2000;
-      const steps = 60;
-      const stepDuration = duration / steps;
-      let step = 0;
-
-      const timer = setInterval(() => {
-        step += 1;
-        const progress = step / steps;
-
-        setCounters({
-          projects: Math.floor(targetValues.projects * progress),
-          clients: Math.floor(targetValues.clients * progress),
-          efficiency: Math.floor(targetValues.efficiency * progress)
-        });
-
-        if (step >= steps) {
-          clearInterval(timer);
-          setCounters(targetValues);
-        }
-      }, stepDuration);
-    };
-
-    // Inicia a animação após um delay
-    const timer = setTimeout(animateCounters, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <Box
       id="home"
       sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        pt: 8,
-        position: 'relative',
-        overflow: 'hidden'
+        height: "100vh",
+        width: "100%",
+        background: "black",
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <Container maxWidth="xl">
+      {/* Texto Superior Esquerdo - Ajustado para ficar mais acima */}
+      <Typography
+        variant="h5"
+        sx={{
+          position: "absolute",
+          top: 100, // Aumentei de 150 para 100 para subir mais
+          left: 60,
+          color: "white",
+          fontWeight: 600,
+          fontFamily: "Inter, sans-serif",
+          zIndex: 10, // Garantir que fique acima de outros elementos
+        }}
+      >
+        Tecnologia que{" "}
+        <Box component="span" sx={{ color: "#7C3AED" }}>
+          conecta
+        </Box>{" "}
+        e expande.
+      </Typography>
+
+      {/* Container Principal */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "-40px", 
+        }}
+      >
+       
+        {[
+          { liber: "#fff", stack: "#fff" },
+          { liber: "transparent", stack: "transparent", outline: true },
+          { liber: "#7C3AED", stack: "#7C3AED" },
+          { liber: "#fff", stack: "#fff" },
+        ].map((line, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: i * 0.25 }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "Space Grotesk, sans-serif",
+              fontWeight: 900,
+              fontSize: "4.4rem",
+              height: "80px",
+              position: "relative",
+              zIndex: 2, // Texto atrás do ícone
+            }}
+          >
+            {/* LIBER */}
+            <span
+              style={{
+                color: line.liber,
+                WebkitTextStroke: line.outline ? "2px #7C3AED" : "0px transparent",
+              }}
+            >
+              LIBER
+            </span>
+
+            {/* ESPAÇO RESERVADO PARA O LOGO (300px de largura) */}
+            <span style={{ width: "300px", display: "inline-block" }}></span>
+
+            {/* STACK */}
+            <span
+              style={{
+                color: line.stack,
+                WebkitTextStroke: line.outline ? "2px #7C3AED" : "0px transparent",
+              }}
+            >
+              STACK
+            </span>
+          </motion.div>
+        ))}
+
+        {/* LOGO ÚNICO CENTRALIZADO - COM zIndex MAIOR PARA SOBREPOR O TEXTO */}
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
-            gap: 8,
-            alignItems: 'center'
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 5, // zIndex maior para ficar sobre o texto
+            width: 300,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {/* Conteúdo à ESQUERDA */}
-          <Box sx={{ order: { xs: 2, lg: 1 } }}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              {/* Título com destaque em roxo */}
-              <Typography 
-                variant="h1" 
-                gutterBottom
-                sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
-                  fontWeight: 600,
-                  lineHeight: 1.1,
-                  mb: 3
-                }}
-              >
-                Tecnologia que{' '}
-                <Box 
-                  component="span" 
-                  sx={{ color: '#7C3AED' }}
-                >
-                  conecta
-                </Box>{' '}
-                e{' '}
-                <Box 
-                  component="span" 
-                  sx={{ color: '#7C3AED' }}
-                >
-                  expande
-                </Box>
-                .
-              </Typography>
-              
-              {/* Parágrafo da missão */}
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  mb: 4, 
-                  fontSize: { xs: '1rem', md: '1.25rem' },
-                  color: 'text.secondary',
-                  lineHeight: 1.6
-                }}
-              >
-                Integrar e ampliar a tecnologia no sentido da distribuição de informação segura e confiável.
-              </Typography>
-            </motion.div>
-
-            {/* INDICADORES DE DESEMPENHO */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <Box 
-                sx={{ 
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, 1fr)',
-                  gap: 3,
-                  mb: 4,
-                  py: 3,
-                  borderTop: '1px solid',
-                  borderBottom: '1px solid',
-                  borderColor: 'rgba(124, 58, 237, 0.2)'
-                }}
-              >
-                {/* Projetos */}
-                <Box sx={{ textAlign: 'center' }}>
-                  <Typography 
-                    variant="h3" 
-                    sx={{ 
-                      color: '#7C3AED',
-                      fontWeight: 700,
-                      fontSize: { xs: '2rem', md: '2.5rem' },
-                      mb: 1
-                    }}
-                  >
-                    +{counters.projects}
-                  </Typography>
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      color: 'text.secondary',
-                      textTransform: 'uppercase',
-                      fontSize: '0.875rem',
-                      letterSpacing: '0.1em'
-                    }}
-                  >
-                    Projetos
-                  </Typography>
-                </Box>
-
-                {/* Clientes */}
-                <Box sx={{ textAlign: 'center' }}>
-                  <Typography 
-                    variant="h3" 
-                    sx={{ 
-                      color: '#7C3AED',
-                      fontWeight: 700,
-                      fontSize: { xs: '2rem', md: '2.5rem' },
-                      mb: 1
-                    }}
-                  >
-                    +{counters.clients}
-                  </Typography>
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      color: 'text.secondary',
-                      textTransform: 'uppercase',
-                      fontSize: '0.875rem',
-                      letterSpacing: '0.1em'
-                    }}
-                  >
-                    Clientes
-                  </Typography>
-                </Box>
-
-                {/* Eficiência */}
-                <Box sx={{ textAlign: 'center' }}>
-                  <Typography 
-                    variant="h3" 
-                    sx={{ 
-                      color: '#7C3AED',
-                      fontWeight: 700,
-                      fontSize: { xs: '2rem', md: '2.5rem' },
-                      mb: 1
-                    }}
-                  >
-                    {counters.efficiency}%
-                  </Typography>
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      color: 'text.secondary',
-                      textTransform: 'uppercase',
-                      fontSize: '0.875rem',
-                      letterSpacing: '0.1em'
-                    }}
-                  >
-                    Eficiência
-                  </Typography>
-                </Box>
-              </Box>
-            </motion.div>
-
-            {/* BOTÃO CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: '#7C3AED',
-                  color: 'white',
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  display: 'flex',
-                  px: 4,
-                  py: 2,
-                  borderRadius: 2,
-                  '&:hover': {
-                    backgroundColor: '#6D28D9',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 8px 25px rgba(124, 58, 237, 0.4)'
-                  },
-                  transition: 'all 0.3s ease-in-out'
-                }}
-              >
-                Iniciar Projeto
-              </Button>
-            </motion.div>
-          </Box>
-
-          {/* Animação à DIREITA */}
-          <Box sx={{ 
-            order: { xs: 1, lg: 2 },
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <NetworkDiagram />
-          </Box>
+          <img
+            src="/assets/libericon-nobg.png"
+            alt="Liberstack"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
         </Box>
-      </Container>
+      </Box>
+
+      {/* Texto Inferior Direito */}
+      <Typography
+        variant="body1"
+        sx={{
+          position: "absolute",
+          bottom: 60,
+          right: 60,
+          width: "350px",
+          textAlign: "right",
+          color: "white",
+          fontSize: "1.1rem",
+          lineHeight: 1.5,
+          fontFamily: "Inter, sans-serif",
+        }}
+      >
+        Integrar e ampliar a tecnologia no sentido da distribuição
+        de informação segura e confiável.
+      </Typography>
     </Box>
   );
 };

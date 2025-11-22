@@ -3,36 +3,35 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from './style/theme';
 
-// Importe apenas o componente de countdown
-import LaunchCountdown from './components/sections/LaunchCountdown';
+// Components
+import Preloader from './components/layout/Preloader';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero';
+import Services from './components/sections/Services'; 
+import Product from './components/sections/Product';
+import Feedback from './components/sections/Feedback';
+import Footer from './components/layout/Footer';
 
 function App() {
-  // Para o deploy temporário, vamos exibir apenas o countdown
-  const isLaunchMode = true; // Mude para false quando quiser voltar ao site completo
+  // Para desenvolvimento, vamos mostrar o site completo
+  const isLaunchMode = false; // ← Mude para false para desenvolvimento
 
   if (isLaunchMode) {
-    return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="App">
-          <LaunchCountdown />
-        </div>
-      </ThemeProvider>
-    );
+    // código do countdown, como não estamos usando, fica vazio
   }
 
-  // Código original para quando voltar ao site completo
+  // Código completo para desenvolvimento
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        {/* <Preloader />
+        <Preloader />
         <Navbar />
         <Hero />
-        <Services />
+        <Services /> 
         <Product />
         <Feedback />
-        <Footer /> */}
+        <Footer />
       </div>
     </ThemeProvider>
   );
