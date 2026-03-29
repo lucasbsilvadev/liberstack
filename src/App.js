@@ -21,7 +21,7 @@ function App() {
     );
   }
 
-  // Código original para quando voltar ao site completo
+  // código pra deploy (launch)
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
