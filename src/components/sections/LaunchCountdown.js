@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
-import { motion } from 'framer-motion';
 
 const CountdownNumber = ({ number, label }) => (
   <Box sx={{ textAlign: 'center', mx: 2 }}>
@@ -55,7 +54,9 @@ const TikTokIcon = () => (
 
 const LaunchCountdown = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const launchDate = new Date('2026-09-29T00:00:00');
+  
+  // useMemo evita que a data seja recriada em cada render e limpa o aviso do hook
+  const launchDate = useMemo(() => new Date('2026-09-29T00:00:00'), []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -72,7 +73,7 @@ const LaunchCountdown = () => {
     const timer = setInterval(calculateTimeLeft, 1000);
     calculateTimeLeft();
     return () => clearInterval(timer);
-  }, []);
+  }, [launchDate]);
 
   const socialLinks = [
     { name: 'Instagram', icon: <InstagramIcon />, url: 'https://instagram.com/liberstack' },
