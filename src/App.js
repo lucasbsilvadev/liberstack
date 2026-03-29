@@ -3,12 +3,12 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from './style/theme';
 
-// Importe apenas o componente de countdown
+// pre deploy
 import LaunchCountdown from './components/sections/LaunchCountdown';
 
 function App() {
-  // Para o deploy temporário, vamos exibir apenas o countdown
-  const isLaunchMode = true; // Mude para false quando quiser voltar ao site completo
+    // exibição do pré-deploy 
+  const isLaunchMode = true; 
 
   if (isLaunchMode) {
     return (
