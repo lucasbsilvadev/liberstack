@@ -77,7 +77,7 @@ const LaunchCountdown = () => {
 
   const socialLinks = [
     { name: 'Instagram', icon: <InstagramIcon />, url: 'https://instagram.com/liberstack' },
-    { name: 'TikTok', icon: <TikTokIcon />, url: 'https://tiktok.com/@liberstack' }
+    { name: 'TikTok', icon: <TikTokIcon />, url: 'https://tiktok.com/@liberstack.co' }
   ];
 
   return (
