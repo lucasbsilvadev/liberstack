@@ -56,7 +56,7 @@ const LaunchCountdown = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   
   // useMemo evita que a data seja recriada em cada render e limpa o aviso do hook
-  const launchDate = useMemo(() => new Date('2026-09-29T00:00:00'), []);
+  const launchDate = useMemo(() => new Date('2026-12-31T00:00:00'), []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
