@@ -1,0 +1,111 @@
+/* =========================================
+   ESTILOS BASE (DESKTOP) - Mantido intacto
+   ========================================= */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title-wrapper {
+  position: absolute;
+  top: 14%;
+  left: 8%;
+  width: 420px;
+  z-index: 10;
+}
+
+.hero-center-block {
+  position: absolute;
+  top: 50%;
+  left: 48%; /* Desktop */
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content; /* MUDANÇA AQUI: Em vez de 100%, usa o tamanho do conteúdo */
+}
+
+.hero-text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 4.4rem;
+  height: 80px;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.hero-gap {
+  width: 300px;
+  display: inline-block;
+}
+
+.hero-logo-wrapper {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-paragraph {
+  position: absolute;
+  bottom: 110px;
+  right: 90px;
+  width: 420px;
+  text-align: right;
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================================
+   ESTILOS MOBILE (Telas até 900px)
+   ========================================= */
+@media (max-width: 900px) {
+  .hero-title-wrapper {
+    top: 14%;
+    left: 5%;
+    width: 90%;
+  }
+
+  .hero-center-block {
+    left: 50%; /* Centraliza no mobile */
+    width: 100%; /* Aqui pode ficar 100% porque ele é o container externo */
+  }
+
+  .hero-text-line {
+    font-size: 2.2rem;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .hero-gap {
+    /* AJUSTE DO VÃO: Aumentei de 110px para 140px para dar espaço pra logo */
+    width: 140px; 
+  }
+
+  .hero-logo-wrapper {
+    /* Aumentei um tico a logo para 160px para não parecer perdida */
+    width: 160px; 
+    height: 160px;
+  }
+
+  .hero-paragraph {
+    bottom: 80px;
+    right: 20px;
+    width: 80%;
+    font-size: 0.9rem;
+  }
+}

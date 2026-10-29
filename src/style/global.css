@@ -1,5 +1,13 @@
 @import './preloader.css';
 
+/* =========================================
+   IMPORTANDO AS FONTES (Google Fonts)
+   - VT323: Primária (Display/Headings)
+   - Space Mono: Secundária (Corpo/UI)
+   - Inter: Terciária (Fallback de legibilidade)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -11,10 +19,37 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  /* A Fonte Secundária assume o corpo inteiro */
+  font-family: 'Space Mono', 'Inter', monospace;
   background-color: #000000;
   color: #F8FAFC;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   HIERARQUIA TIPOGRÁFICA
+   ========================================= */
+
+/* Títulos (O "Nerd/Cyber") */
+h1, h2, h3, h4, h5, h6, 
+.font-display {
+  font-family: 'VT323', monospace !important;
+  font-weight: 400; /* VT323 não tem bold real, o pixel já é pesado */
+  letter-spacing: 0.05em; /* Dá um respiro pra fonte pixelada */
+  text-transform: uppercase; /* Reforça o ar de terminal */
+  line-height: 1.1;
+}
+
+/* Parágrafos e textos corridos (O "Legível") */
+p, span, li, a, input, textarea, button {
+  font-family: 'Space Mono', 'Inter', monospace;
+}
+
+/* Detalhes finos (O "Sutil") */
+caption, small, .font-sans {
+  font-family: 'Inter', sans-serif !important;
 }
 
 /* Scrollbar personalizada */

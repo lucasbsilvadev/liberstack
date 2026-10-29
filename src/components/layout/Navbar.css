@@ -1,0 +1,122 @@
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar-appbar {
+  background: black !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+.navbar-toolbar {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* LOGO */
+.navbar-logo-wrapper {
+  width: 130px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* LINKS CENTRAIS (Desktop) */
+.navbar-links {
+  display: flex;
+  gap: 32px;
+  text-transform: lowercase;
+}
+
+.navbar-link {
+  color: #ddd;
+  font-size: 1.05rem;
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #7C3AED;
+}
+
+/* BOTÃO CTA */
+.navbar-cta {
+  background: #7C3AED !important;
+  color: white !important;
+  padding: 10px 24px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.95rem !important;
+  text-transform: lowercase !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s ease !important;
+}
+
+.navbar-cta:hover {
+  background: #6D28D9 !important;
+}
+
+/* ÍCONE HAMBURGER (só mobile) */
+.navbar-hamburger {
+  display: none;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 1.6rem;
+  padding: 4px;
+  z-index: 10;
+}
+
+/* =========================================
+   MOBILE (Telas até 900px)
+   ========================================= */
+@media (max-width: 900px) {
+  .navbar-toolbar {
+    padding: 0 15px !important;
+    /* Usa flexbox e posicionamento relativo para centralizar a logo */
+    display: flex;
+    justify-content: space-between; /* Espaça hamburger e a div do logo */
+    position: relative;
+  }
+
+  /* Mostra o hamburger */
+  .navbar-hamburger {
+    display: block;
+  }
+
+  /* Esconde o botão CTA */
+  .navbar-cta {
+    display: none !important;
+  }
+
+  /* Esconde os links do desktop */
+  .navbar-links {
+    display: none !important;
+  }
+
+  /* Logo centralizada de forma absoluta no meio da tela */
+  .navbar-logo-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    margin: 0;
+  }
+}
+

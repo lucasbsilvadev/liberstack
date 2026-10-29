@@ -18,6 +18,7 @@ export const COLORS = {
 export const NAV_ITEMS = [
   { name: 'Home', href: '#home' },
   { name: 'Serviços', href: '#services' },
+  { name: 'Diferenciais', href: '#diff' },
   { name: 'Produto', href: '#product' },
   { name: 'Feedback', href: '#feedback' }
 ];

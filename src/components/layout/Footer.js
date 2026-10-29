@@ -27,10 +27,10 @@ const Footer = () => {
           
           <Box sx={{ display: 'flex', gap: 3 }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              contato@liberstack.com
+              liberstack@gmail.com
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              (11) 99999-9999
+              (61) 99289-9096
             </Typography>
           </Box>
           

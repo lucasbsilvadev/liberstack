@@ -1,0 +1,274 @@
+/* =========================================
+   CONTACT
+   ========================================= */
+.contact-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 80px;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* =========================================
+   PROPOSTA (esquerda)
+   ========================================= */
+.contact-proposal {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-heading {
+  font-family: "VT323", monospace !important;
+  font-weight: 400 !important;
+  font-size: 2.6rem !important;
+  color: #F8FAFC;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-subtitle {
+  font-family: "Space Mono", monospace !important;
+  font-size: 1rem !important;
+  color: rgba(248, 250, 252, 0.6) !important;
+  margin-bottom: 16px;
+}
+
+.contact-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(124, 58, 237, 0.5);
+}
+
+.contact-pillar-title {
+  font-family: "VT323", monospace !important;
+  font-weight: 400 !important;
+  font-size: 1.3rem !important;
+  color: #7C3AED !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.contact-pillar-desc {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 300;
+  font-size: 0.9rem !important;
+  color: rgba(248, 250, 252, 0.7) !important;
+  line-height: 1.6;
+}
+
+/* =========================================
+   DOSÔMETRO (direita)
+   ========================================= */
+.contact-dosometro {
+  background: #0A0A0A;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-dosometro-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-dosometro-title {
+  font-family: "VT323", monospace !important;
+  font-weight: 400 !important;
+  font-size: 1.6rem !important;
+  color: #7C3AED !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-dosometro-subtitle {
+  font-family: "Space Mono", monospace !important;
+  font-size: 0.85rem !important;
+  color: rgba(248, 250, 252, 0.6) !important;
+}
+
+.contact-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(124, 58, 237, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.contact-progress-fill {
+  height: 100%;
+  background: #7C3AED;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.contact-question {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-question-text {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 400 !important;
+  font-size: 1.1rem !important;
+  color: #F8FAFC !important;
+  line-height: 1.4;
+}
+
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-option {
+  background: transparent;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 8px;
+  padding: 14px 18px;
+  text-align: left;
+  font-family: "Space Mono", monospace;
+  font-size: 0.9rem;
+  color: rgba(248, 250, 252, 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-option:hover {
+  border-color: rgba(124, 58, 237, 0.6);
+  background: rgba(124, 58, 237, 0.05);
+  color: #F8FAFC;
+}
+
+.contact-option.is-selected {
+  border-color: #7C3AED;
+  background: rgba(124, 58, 237, 0.15);
+  color: #F8FAFC;
+  font-weight: 600;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.contact-btn-back {
+  color: rgba(248, 250, 252, 0.6) !important;
+  text-transform: lowercase !important;
+  font-family: "Space Mono", monospace !important;
+}
+
+.contact-btn-next {
+  background: #7C3AED !important;
+  color: white !important;
+  text-transform: lowercase !important;
+  font-family: "Space Mono", monospace !important;
+  padding: 10px 24px !important;
+}
+
+.contact-btn-next:disabled {
+  background: rgba(124, 58, 237, 0.3) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* RESULTADO */
+.contact-result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-result-label {
+  font-family: "Space Mono", monospace !important;
+  font-size: 0.8rem !important;
+  color: rgba(248, 250, 252, 0.5) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-result-title {
+  font-family: "VT323", monospace !important;
+  font-weight: 400 !important;
+  font-size: 1.6rem !important;
+  color: #7C3AED !important;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.contact-result-desc {
+  font-family: "Space Mono", monospace !important;
+  font-size: 0.9rem !important;
+  color: rgba(248, 250, 252, 0.7) !important;
+  line-height: 1.5;
+}
+
+.contact-btn-whatsapp {
+  background: #25D366 !important;
+  color: white !important;
+  text-transform: lowercase !important;
+  font-family: "Space Mono", monospace !important;
+  padding: 12px 24px !important;
+  margin-top: 8px;
+  font-size: 0.95rem !important;
+}
+
+.contact-btn-restart {
+  color: rgba(248, 250, 252, 0.5) !important;
+  text-transform: lowercase !important;
+  font-family: "Space Mono", monospace !important;
+  font-size: 0.8rem !important;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 100px 20px 60px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-heading {
+    font-size: 2rem !important;
+  }
+
+  .contact-dosometro {
+    padding: 24px;
+  }
+
+  .contact-result-title {
+    font-size: 1.4rem !important;
+  }
+}

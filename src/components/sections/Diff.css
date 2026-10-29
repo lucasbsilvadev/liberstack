@@ -1,0 +1,151 @@
+/* =========================================
+   DIFF SECTION
+   ========================================= */
+.diff-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 60px;
+}
+
+.diff-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1400px;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.diff-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  z-index: 3;
+  width: 100%;
+}
+
+.diff-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.diff-item {
+  margin-bottom: 20px;
+  width: 100%; /* GARANTE ALINHAMENTO */
+}
+
+.diff-item-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #7C3AED;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.diff-item-desc {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
+}
+
+.diff-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(124, 58, 237, 0.3);
+  margin: 15px 0;
+}
+
+.diff-visual {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.diff-bird {
+  position: relative;
+  z-index: 2;
+  width: 60%;
+  max-width: 340px;
+  object-fit: contain;
+  /* filter: drop-shadow(0 0 25px rgba(124, 58, 237, 0.35)); */
+}
+
+/* =========================================
+   MOBILE (Telas até 900px)
+   ========================================= */
+@media (max-width: 900px) {
+  .diff-section {
+    padding: 100px 20px 60px;
+    align-items: flex-start;
+  }
+
+  .diff-container {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .diff-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 10px;
+    gap: 15px;
+  }
+
+  .diff-title {
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .diff-item {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .diff-item-title {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .diff-item-desc {
+    font-size: 0.85rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .diff-divider {
+    display: none;
+  }
+
+  .diff-visual {
+    min-height: 350px;
+  }
+
+  .diff-bird {
+    width: 70%;
+  }
+}

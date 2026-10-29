@@ -51,7 +51,7 @@ const Preloader = () => {
                 }}
               >
                 <img 
-                  src="/assets/libericon.png" 
+                  src="/assets/libericon-nobg.png" 
                   alt="liberstack" 
                   className="preloader-logo"
                   onError={(e) => {

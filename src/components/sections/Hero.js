@@ -1,56 +1,102 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionTemplate,
+} from "framer-motion";
+import "./Hero.css";
 
-const Hero = () => {
+const MotionBox = motion.create(Box);
+const MotionTypography = motion.create(Typography);
+
+const Hero = ({ onActivateNucleus }) => {
+  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+  const [isHoveringLogo, setIsHoveringLogo] = React.useState(false);
+  
+  const isMobile = useMediaQuery("(max-width:900px)");
+
+  const { scrollYProgress } = useScroll();
+
+  const blurAmount = useTransform(scrollYProgress, [0, 1], [0, 8]);
+  const yShift = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const paragraphOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
+
+  const blurFilter = useMotionTemplate`blur(${blurAmount}px)`;
+
+  // === EFEITO 3D NO SCROLL (MOBILE) ===
+  // O bloco central "mergulha" e gira levemente ao rolar a tela
+  const scaleDown = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.5], [0, 25]);
+  const zTranslation = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
+
+  const handleLogoClick = () => {
+    onActivateNucleus();
+  };
+
   return (
-    <Box
+    <MotionBox
       id="home"
-      sx={{
-        height: "100vh",
-        width: "100%",
+      className="hero-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -50 }}
+      transition={{ duration: 0.5 }}
+      style={{
         background: "black",
-        position: "relative",
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        y: yShift,
+        filter: blurFilter,
+        // Permite que o 3D funcione (perspectiva)
+        perspective: isMobile ? "1000px" : "none", 
+      }}
+      onMouseMove={(e) => {
+        if (isMobile) return; 
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMousePos({
+          x: (e.clientX - rect.left) / rect.width - 0.5,
+          y: (e.clientY - rect.top) / rect.height - 0.5,
+        });
       }}
     >
-      {/* Texto Superior Esquerdo - Ajustado para ficar mais acima */}
-      <Typography
-        variant="h5"
-        sx={{
-          position: "absolute",
-          top: 100, // Aumentei de 150 para 100 para subir mais
-          left: 60,
-          color: "white",
-          fontWeight: 600,
-          fontFamily: "Inter, sans-serif",
-          zIndex: 10, // Garantir que fique acima de outros elementos
-        }}
+      {/* Título */}
+      <motion.div
+        className="hero-title-wrapper"
+        initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: -35 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.6, delay: isMobile ? 0.2 : 0 }}
       >
-        Tecnologia que{" "}
-        <Box component="span" sx={{ color: "#7C3AED" }}>
-          conecta
-        </Box>{" "}
-        e expande.
-      </Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "white",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+            fontSize: { xs: "1.1rem", md: "1.5rem" }
+          }}
+        >
+          usamos a tecnologia.
+          <br />
+          <Box component="span" sx={{ color: "#7C3AED" }}>
+            libertamos a sua operação.
+          </Box>
+        </Typography>
+      </motion.div>
 
-      {/* Container Principal */}
+      {/* Bloco Central com Efeito 3D no Mobile */}
       <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "-40px", 
-        }}
+        className="hero-center-block"
+        style={
+          isMobile 
+            ? { 
+                scale: scaleDown, 
+                rotateX: rotateX, 
+                z: zTranslation,
+                transformStyle: "preserve-3d" 
+              } 
+            : {}
+        }
       >
-       
         {[
           { liber: "#fff", stack: "#fff" },
           { liber: "transparent", stack: "transparent", outline: true },
@@ -59,90 +105,117 @@ const Hero = () => {
         ].map((line, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: i * 0.25 }}
+            className="hero-text-line"
+            initial={
+              isMobile 
+                ? { opacity: 0, y: 30 } 
+                : { opacity: 0, x: i % 2 === 0 ? -60 : 60 } 
+            }
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              delay: isMobile ? i * 0.15 + 0.3 : i * 0.25, 
+              type: "spring",
+              stiffness: 100
+            }}
+            whileHover={!isMobile ? { scale: 1.015, transition: { duration: 0.3 } } : {}}
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontFamily: "Space Grotesk, sans-serif",
-              fontWeight: 900,
-              fontSize: "4.4rem",
-              height: "80px",
-              position: "relative",
-              zIndex: 2, // Texto atrás do ícone
+              transform: !isMobile ? `translate(${mousePos.x * 12}px, ${mousePos.y * 6}px)` : "none",
             }}
           >
-            {/* LIBER */}
-            <span
+            <motion.span
               style={{
                 color: line.liber,
                 WebkitTextStroke: line.outline ? "2px #7C3AED" : "0px transparent",
               }}
             >
               LIBER
-            </span>
+            </motion.span>
 
-            {/* ESPAÇO RESERVADO PARA O LOGO (300px de largura) */}
-            <span style={{ width: "300px", display: "inline-block" }}></span>
+            <span className="hero-gap"></span>
 
-            {/* STACK */}
-            <span
+            <motion.span
               style={{
                 color: line.stack,
                 WebkitTextStroke: line.outline ? "2px #7C3AED" : "0px transparent",
               }}
             >
               STACK
-            </span>
+            </motion.span>
           </motion.div>
         ))}
 
-        {/* LOGO ÚNICO CENTRALIZADO - COM zIndex MAIOR PARA SOBREPOR O TEXTO */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 5, // zIndex maior para ficar sobre o texto
-            width: 300,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            src="/assets/libericon-nobg.png"
-            alt="Liberstack"
+        {/* Logo */}
+        <Box className="hero-logo-wrapper">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{
+              opacity: 1,
+              x: !isMobile ? mousePos.x * 25 : 0,
+              y: !isMobile ? mousePos.y * 15 : 0,
+              // === EFEITO "RESPIRO" NO MOBILE (Pulse infinito) ===
+              scale: isMobile 
+                ? [1, 1.03, 1] 
+                : (isHoveringLogo ? 1.15 : 1),
+            }}
+            transition={{
+              // Configuração pra funcionar o pulse no mobile
+              scale: isMobile 
+                ? { duration: 3, repeat: Infinity, ease: "easeInOut" } 
+                : { type: "spring", stiffness: 100, damping: 15 },
+              opacity: { duration: 0.9, delay: isMobile ? 1 : 0 },
+            }}
+            whileHover={!isMobile ? {
+              rotate: 3,
+              transition: { type: "spring", stiffness: 150, damping: 8 },
+            } : {}}
+            whileTap={isMobile ? { scale: 0.95 } : {}} 
+            onHoverStart={() => !isMobile && setIsHoveringLogo(true)}
+            onHoverEnd={() => !isMobile && setIsHoveringLogo(false)}
+            onClick={handleLogoClick}
             style={{
               width: "100%",
-              height: "auto",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              pointerEvents: "auto",
             }}
-          />
+          >
+            <motion.img
+              src="/assets/libericon-nobg.png"
+              alt="Icon liberstack"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                filter: isHoveringLogo ? "drop-shadow(0 0 20px rgba(124, 58, 237, 0.6))" : "none",
+                transition: "filter 0.3s ease",
+              }}
+            />
+          </motion.div>
         </Box>
       </Box>
 
-      {/* Texto Inferior Direito */}
-      <Typography
+      {/* Parágrafo */}
+      <MotionTypography
+        className="hero-paragraph"
+        initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ duration: 0.7, delay: isMobile ? 0.8 : 0 }}
         variant="body1"
-        sx={{
-          position: "absolute",
-          bottom: 60,
-          right: 60,
-          width: "350px",
-          textAlign: "right",
-          color: "white",
-          fontSize: "1.1rem",
-          lineHeight: 1.5,
-          fontFamily: "Inter, sans-serif",
-        }}
+        style={{ opacity: paragraphOpacity }}
       >
-        Integrar e ampliar a tecnologia no sentido da distribuição
-        de informação segura e confiável.
-      </Typography>
-    </Box>
+        menos gambiarra.
+        <br />
+        mais controle.
+        <br />
+        mais autonomia.
+        <br />
+        mais tempo.
+      </MotionTypography>
+    </MotionBox>
   );
 };
 

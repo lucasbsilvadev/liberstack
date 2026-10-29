@@ -6,31 +6,31 @@ import { theme } from './style/theme';
 // Components
 import Preloader from './components/layout/Preloader';
 import Navbar from './components/layout/Navbar';
-import Hero from './components/sections/Hero';
+import HeroDiffWrapper from './components/ui/DiffWrapper'; 
 import Services from './components/sections/Services'; 
-import Product from './components/sections/Product';
-import Feedback from './components/sections/Feedback';
+import Partners from './components/sections/Partners';
+// import Feedback from './components/sections/Feedback';
 import Footer from './components/layout/Footer';
+import Contact from './components/sections/Contact';
 
 function App() {
-  // Para desenvolvimento, vamos mostrar o site completo
-  const isLaunchMode = false; // ← Mude para false para desenvolvimento
+  const isLaunchMode = false;
 
   if (isLaunchMode) {
-    // código do countdown, como não estamos usando, fica vazio
+    // código do countdown
   }
 
-  // Código completo para desenvolvimento
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
         <Preloader />
         <Navbar />
-        <Hero />
+        <HeroDiffWrapper />
         <Services /> 
-        <Product />
-        <Feedback />
+        <Partners />
+        {/* <Feedback /> */}
+        <Contact />
         <Footer />
       </div>
     </ThemeProvider>
