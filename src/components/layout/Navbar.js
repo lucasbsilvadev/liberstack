@@ -41,7 +41,7 @@ const Navbar = () => {
         </Box>
 
         {/* CTA Right */}
-        <Button variant="contained" className="navbar-cta">
+        <Button variant="contained" className="navbar-cta" component="a" href="https://wa.me/5561992899096">
           começar
         </Button>
 
