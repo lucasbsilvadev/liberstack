@@ -60,7 +60,7 @@
 
 .hero-paragraph {
   position: absolute;
-  bottom: 110px;
+  bottom: 50px;
   right: 90px;
   width: 420px;
   text-align: right;
@@ -103,7 +103,7 @@
   }
 
   .hero-paragraph {
-    bottom: 80px;
+    bottom: 70px;
     right: 20px;
     width: 80%;
     font-size: 0.9rem;
